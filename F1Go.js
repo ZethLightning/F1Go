@@ -157,10 +157,47 @@ function hideHeader() {
 }
 
 
+function radioVar(radioNum, radioArray, textNum, textArray)
+{
+    const textInput = document.querySelector(`input[name="${textNum}"]`);
+    const radios = document.querySelectorAll(`input[type="radio"][name="${radioNum}"]`);
+    document.querySelector('button[data-qa="fb-client-button-submit"]').addEventListener('click', function () {
+        const selectedRadio = Array.from(radios).find(radio => radio.checked);
+        if (selectedRadio) {
+            console.log(`Selected campus: ${selectedRadio.value}`);
+
+            // Loop through the places array
+            for (let i = 0; i < radioArray.length; i++) {
+                if (radioArray[i] === selectedRadio.value) {
+                    // Update the text inputs with the corresponding values
+                    textInput.value = textArray[i];
+                    break;  // Exit the loop once a match is found
+                }
+            }
+        } else {
+            console.log('No campus selected.');
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 
 
 
     // Attach functions to global scope
+    global.radioVar = radioVar;
     global.waitForElement = waitForElement;
     global.hideElement = hideElement;
     global.RadioButtonCaps = radioButtonCaps;
