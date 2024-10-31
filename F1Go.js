@@ -164,6 +164,10 @@ function radioVar(radioNum, radioArray, textNum, textArray) {
             console.error(`Error: No input field found with name "${textNum}"`);
             return;
         }
+        const formGroup = textInput.closest('.form-group');
+            if (formGroup) {
+                formGroup.style.display = "none";
+            }
         
         const radios = document.querySelectorAll(`input[type="radio"][name="${radioNum}"]`);
         if (radios.length === 0) {
