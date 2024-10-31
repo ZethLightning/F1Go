@@ -55,7 +55,7 @@
         // Start observing the document body for changes
         observer.observe(document.body, { childList: true, subtree: true });
     }
-    function RadioButtonCaps(){
+    function radioButtonCaps(){
         observeDOMChanges(); // Start observing the DOM for changes
         modifyRemainingText(); // Modify text initially
     }
@@ -124,17 +124,47 @@ function initializeDropdowns(elements) {
     elements.forEach(dropdown => setupDropdown(dropdown));
 }
 
-function DropDownCaps() {
+function dropDownCaps() {
     const elements = document.querySelectorAll('.your-dropdown-class'); // Adjust selector as needed
     console.log('Form elements found, initializing dropdowns...');
     initializeDropdowns(elements);
     setTimeout(monitorForNewDropdowns, 1000); // Continue monitoring for new dropdowns
 }
 
+function hideHeader() {
+    const imgElement = document.querySelector('.form-header.no-portal img'); // Select the image element directly
+
+    if (imgElement) {
+        try {
+            const isEmbedded = window.self !== window.top;
+            const referrer = document.referrer;
+            const normalDomain = 'fellowshiponego.com'; // Change this to the actual F1Go domain
+
+            if (isEmbedded && !referrer.includes(normalDomain)) {
+                imgElement.style.display = 'none';
+                console.log('Image hidden because the form is embedded in a different domain.');
+            } else {
+                console.log('Form is either not embedded or embedded in the normal domain.');
+            }
+        } catch (e) {
+            imgElement.style.display = 'none'; // Assume it's embedded in a different domain if there's an error
+            console.log('Error occurred, hiding the image as a precaution.');
+        }
+    } else {
+        setTimeout(hideHeaderImageIfNecessary, 100); // Retry after 100ms if the element is not found
+        console.log('Image element not found, retrying...');
+    }
+}
+
+
+
+
+
     // Attach functions to global scope
     global.waitForElement = waitForElement;
     global.hideElement = hideElement;
-    global.RadioButtonCaps = RadioButtonCaps;
-    global.DropDownCaps = DropDownCaps;
+    global.RadioButtonCaps = radioButtonCaps;
+    global.DropDownCaps = dropDownCaps;
+    global.hideHeader = hideHeader;
 
 })(this); // 'this' refers to the global object, which is 'window' in browsers
