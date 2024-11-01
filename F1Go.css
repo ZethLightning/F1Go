@@ -1,0 +1,310 @@
+/*
+:root {
+    --primary-color: #00a3e0;
+    --dark-red: #990000; 
+    --label-gray: #666666; 
+}
+
+*/
+
+    /*Dropdown Menu Background Color */
+    /*Dropdown Menu Hover Color */
+    #mb-formbuilder-container .fbTheme .search-select .ss__menu .ss__option--is-selected,#mb-formbuilder-container .formView .search-select .ss__menu .ss__option--is-selected {
+        background-color: var(--primary-color)!important;
+        color: #fff
+    }
+    
+    .mb-theme>[class^=css-] .ss__menu .ss__option--is-selected {
+        background-color: var(--primary-color)!important;
+        color: #fff
+    }
+    
+    .mb-theme>[class^=css-] .ss__control.ss__control--is-focused {
+        border: 1px solid var(--primary-color)!important;
+    }
+    
+    #mb-formbuilder-container .fbTheme .search-select .ss__menu .ss__option--is-focused,#mb-formbuilder-container .formView .search-select .ss__menu .ss__option--is-focused {
+        background-color: var(--primary-color)!important;
+        color: #fff
+    }
+    
+    /*Text Box Focus Color Code*/
+    #mb-formbuilder-container .fbTheme .form-group[inFocus] .form-control, #mb-formbuilder-container .formView .form-group[inFocus] .form-control  {
+        border-color: var(--primary-color)!important;
+    }
+    
+    #mb-formbuilder-container .fbTheme .form-group:not(.has-error) .input-group .input-group-addon.input-focus+input  {
+        border-color: var(--primary-color)!important;
+    }
+    #mb-formbuilder-container .fbTheme .form-group:not(.has-error) .input-group .input-group-addon.input-focus,#mb-formbuilder-container .fbTheme .form-group:not(.has-error) .input-group .input-group-addon.input-focus+input,#mb-formbuilder-container .formView .form-group:not(.has-error) .input-group .input-group-addon.input-focus,#mb-formbuilder-container .formView .form-group:not(.has-error) .input-group .input-group-addon.input-focus+input{
+        border-color: var(--primary-color)!important;
+    }
+    
+    #mb-formbuilder-container .fbTheme .form-group[inFocus] .control-label.field-label  {
+        color: var(--primary-color)!important;
+    }
+    
+    #mb-formbuilder-container .fbTheme .search-select .ss__control.ss__control--is-focused{
+        border-color: var(--primary-color)!important;
+    }
+    
+    /*Make the page transparent...for border formatting*/
+    #mb-formbuilder-container .formPreview, #mb-formbuilder-container.directLink {
+        margin: 0 auto!important;
+        max-width: 930px!important;
+        background-color: transparent!important;
+        color: var(--label-gray)!important;
+    }
+    
+    /*Rounded Blue border with white background */
+    .fbTheme.container-fluid.default {
+        border-radius: 1rem!important;
+        border-color: var(--primary-color)!important;
+        border-style: solid;
+        border-width: 9px;
+        background-color: white;
+    }
+    
+    /* Rounded Corners of Header image and section labels*/
+    h2 {
+        border-radius: .5rem;
+    }
+    img {
+        border-radius: 0.5rem;
+    }
+    /* Change "required" to an asterisk, also changes it to dark red (#990000 can be changed to any hex color) - Make sure under the Form Properties -->Field Validation is set to Display (required) beside required fields*/
+    .help-text-top {
+                visibility: hidden;
+                position: relative;
+            }
+    .help-text-top:after {
+                visibility: visible;
+                position: absolute;
+                top: 0;
+                left: 5px;
+                content: "*";
+                color: var(--dark-red);
+            }
+    
+    
+    /* Hide Header */
+    #mb-formbuilder-container .fbTheme .form-header .text>h2, #mb-formbuilder-container .formView .form-header .text>h2 {
+        margin-top: 0;
+        display: none;
+    }
+    
+    
+    
+    /* Change Label Font to Large Size */
+    span.fieldname {
+        font-size: large;
+    }
+    
+    
+    
+    /* Reduce Header Padding*/
+    #mb-formbuilder-container .fbTheme .form-header, #mb-formbuilder-container .formView .form-header {
+        padding-bottom: 0;
+        display: table;
+    }
+    
+    
+    
+    /* Checkboxes and Radios JR Blue */
+    #mb-formbuilder-container [type=checkbox]:checked+span::after {
+        opacity: 1;
+        font-weight: 900;
+        color: #fff;
+        background-color: var(--primary-color);
+    }
+    #mb-formbuilder-container .fbTheme [type=radio]+span::after, #mb-formbuilder-container .formView [type=radio]+span::after {
+        background-color: var(--primary-color);
+    }
+    #mb-formbuilder-container .fbTheme [type=checkbox]:checked+span::before, #mb-formbuilder-container .fbTheme [type=radio]:checked+span::before, #mb-formbuilder-container .formView [type=checkbox]:checked+span::before, #mb-formbuilder-container .formView [type=radio]:checked+span::before {
+        color: var(--primary-color);
+        box-shadow: inset 0 0 0 2px var(--primary-color);
+    }
+    #mb-formbuilder-container .fbTheme [type=checkbox]:checked+span, #mb-formbuilder-container .fbTheme [type=radio]:checked+span, #mb-formbuilder-container .formView [type=checkbox]:checked+span, #mb-formbuilder-container .formView [type=radio]:checked+span {
+        color: var(--primary-color);
+    }
+    
+    
+    
+    /* Image Header padding - keeps the header image tighter to the form */
+    #mb-formbuilder-container .fbTheme .form-header img, #mb-formbuilder-container .formView .form-header img {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    
+    
+    
+    /* A WHOLE BUNCH OF CODE TO MAKE ALL LABELS APPEAR ABOVE INPUT BOXES RATHER THAN INSIDE OR ON THE TOP LINE */
+    
+    /* label formatting */
+    
+    #mb-formbuilder-container .fbTheme [field-template-name=phone-number] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=phone-number] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=phone-number] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=phone-number] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=phone-number] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=phone-number] .form-group[animate] .control-label.field-label.col-xs-12 {
+        width: calc(100%)!important;
+    }
+    
+    #mb-formbuilder-container .fbTheme [field-template-name=dropdown] .form-group.animate-on-load .control-label.field-label, #mb-formbuilder-container .fbTheme [field-template-name=dropdown] .form-group[animate] .control-label.field-label, #mb-formbuilder-container .field-controls [field-template-name=dropdown] .form-group.animate-on-load .control-label.field-label, #mb-formbuilder-container .field-controls [field-template-name=dropdown] .form-group[animate] .control-label.field-label, #mb-formbuilder-container .formView [field-template-name=dropdown] .form-group.animate-on-load .control-label.field-label, #mb-formbuilder-container .formView [field-template-name=dropdown] .form-group[animate] .control-label.field-label {
+        width: -webkit-fill-available!important;
+    }
+    
+    #mb-formbuilder-container .col-lg-1, #mb-formbuilder-container .col-lg-10, #mb-formbuilder-container .col-lg-11, #mb-formbuilder-container .col-lg-12, #mb-formbuilder-container .col-lg-2, #mb-formbuilder-container .col-lg-3, #mb-formbuilder-container .col-lg-4, #mb-formbuilder-container .col-lg-5, #mb-formbuilder-container .col-lg-6, #mb-formbuilder-container .col-lg-7, #mb-formbuilder-container .col-lg-8, #mb-formbuilder-container .col-lg-9, #mb-formbuilder-container .col-md-1, #mb-formbuilder-container .col-md-10, #mb-formbuilder-container .col-md-11, #mb-formbuilder-container .col-md-12, #mb-formbuilder-container .col-md-2, #mb-formbuilder-container .col-md-3, #mb-formbuilder-container .col-md-4, #mb-formbuilder-container .col-md-5, #mb-formbuilder-container .col-md-6, #mb-formbuilder-container .col-md-7, #mb-formbuilder-container .col-md-8, #mb-formbuilder-container .col-md-9, #mb-formbuilder-container .col-sm-1, #mb-formbuilder-container .col-sm-10, #mb-formbuilder-container .col-sm-11, #mb-formbuilder-container .col-sm-12, #mb-formbuilder-container .col-sm-2, #mb-formbuilder-container .col-sm-3, #mb-formbuilder-container .col-sm-4, #mb-formbuilder-container .col-sm-5, #mb-formbuilder-container .col-sm-6, #mb-formbuilder-container .col-sm-7, #mb-formbuilder-container .col-sm-8, #mb-formbuilder-container .col-sm-9, #mb-formbuilder-container .col-xs-1, #mb-formbuilder-container .col-xs-10, #mb-formbuilder-container .col-xs-11, #mb-formbuilder-container .col-xs-12, #mb-formbuilder-container .col-xs-2, #mb-formbuilder-container .col-xs-3, #mb-formbuilder-container .col-xs-4, #mb-formbuilder-container .col-xs-5, #mb-formbuilder-container .col-xs-6, #mb-formbuilder-container .col-xs-7, #mb-formbuilder-container .col-xs-8, #mb-formbuilder-container .col-xs-9 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        white-space: pre-wrap!important;
+    }
+    
+    .field-label  {
+        position: initial!important;
+        font-size: small!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: none;
+    }
+    .field-label-phone {
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: none;
+    }
+    .control-label {
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: none;
+    }
+    
+    #mb-formbuilder-container .fbTheme [field-template-name=date] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=date] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=email-address] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=email-address] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=payment-user] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=payment-user] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=date] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=date] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=email-address] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=email-address] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=payment-user] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=payment-user] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=date] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=date] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=email-address] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=email-address] .form-group[animate] .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=payment-user] .form-group.animate-on-load .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=payment-user] .form-group[animate] .control-label.field-label.col-xs-12 {
+        width: calc(100%)!important;
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: pre-wrap!important;
+    }
+    #mb-formbuilder-container .fbTheme .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView .form-group .control-label.field-label.col-xs-12 {
+        width: calc(100%)!important;
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: none;
+    
+    }
+    #mb-formbuilder-container .fbTheme [field-template-name=phone-number] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=phone-number] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=phone-number] .form-group .control-label.field-label.col-xs-12 {
+        width: calc(100%)!important;
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: none;
+    
+    }
+    #mb-formbuilder-container .fbTheme .complex-field .form-group.col-xs-12.col-sm-6 .control-label.field-label, #mb-formbuilder-container .fbTheme .complex-field .form-group.col-xs-6.col-sm-3 .control-label.field-label, #mb-formbuilder-container .field-controls .complex-field .form-group.col-xs-12.col-sm-6 .control-label.field-label, #mb-formbuilder-container .field-controls .complex-field .form-group.col-xs-6.col-sm-3 .control-label.field-label, #mb-formbuilder-container .formView .complex-field .form-group.col-xs-12.col-sm-6 .control-label.field-label, #mb-formbuilder-container .formView .complex-field .form-group.col-xs-6.col-sm-3 .control-label.field-label {
+        width: calc(100%)!important;
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        background-color: transparent!important;
+        white-space: none;
+    
+    }
+    #mb-formbuilder-container .fbTheme [field-template-name=date] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=email-address] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .fbTheme [field-template-name=payment-user] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=date] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=email-address] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=payment-user] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=date] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=email-address] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=payment-user] .form-group .control-label.field-label.col-xs-12 {
+        width: calc(100%)!important;
+        position: initial!important;
+        font-size: medium!important;
+        font-weight: bold!important;
+        color: var(--label-gray)!important;
+        white-space: none;
+    
+    }
+    
+    #mb-formbuilder-container .animation-fade div, #mb-formbuilder-container .animation-fade hr, #mb-formbuilder-container .animation-fade i, #mb-formbuilder-container .animation-fade label, #mb-formbuilder-container .animation-fade section, #mb-formbuilder-container .animation-fade span, #mb-formbuilder-container .animation-fade table, #mb-formbuilder-container .animation-fade textarea {
+        opacity: 1;
+        padding-left: 1px;
+    }
+    
+    /*Line Up Radio Buttons */
+    #mb-formbuilder-container .formPreview .radio, #mb-formbuilder-container.directLink .radio {
+        color: var(--primary-color);
+        padding-left: 2em;
+    }
+    
+    label.col-xs-12.control-label {
+        margin-bottom:0rem!important;
+    }
+    
+    /*Line Up Radio Buttons */
+    #mb-formbuilder-container .formPreview .radio, #mb-formbuilder-container.directLink .radio {
+        padding-left: 2em;
+        margin-bottom: -1rem;
+    }
+    /*Line Up Checkboxes*/
+    #mb-formbuilder-container .formPreview .checkbox, #mb-formbuilder-container.directLink .checkbox{
+        padding-left: 2em;
+        margin-bottom: -1rem;
+    }
+    
+    
+    #mb-formbuilder-container .fbTheme h3.section-header, #mb-formbuilder-container .formView h3.section-header {
+        padding-left: 9px!important;
+        margin-bottom: -1em;
+    }
+    
+    /*Tighten up space between radios/checkboxes
+    #mb-formbuilder-container .checkbox, #mb-formbuilder-container .checkbox-inline, #mb-formbuilder-container .radio, #mb-formbuilder-container .radio-inline {
+        margin-bottom: -1em;
+    }
+    
+    
+    /* Move Confirmation Checkbox down a tad */
+    .fa-check-circle {
+        padding-top: 0.5em;
+    }
+    .fa-check-circle:before {
+        color: var(--primary-color);
+    }
+    
+    /* This makes the signature box stop going right */
+    @media screen and (min-width: 768px) {
+    #mb-formbuilder-container .fbTheme [field-template-name=digital-signature] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .field-controls [field-template-name=digital-signature] .form-group .control-label.field-label.col-xs-12, #mb-formbuilder-container .formView [field-template-name=digital-signature] .form-group .control-label.field-label.col-xs-12 {
+        width: calc(17% - 44px) !important;
+    }
+    }
+
+
+
+    #mb-formbuilder-container .fbTheme .btn.btn-primary.submit, #mb-formbuilder-container .fbTheme .input-group-btn.btn-primary.submit, #mb-formbuilder-container .formView .btn.btn-primary.submit, #mb-formbuilder-container .formView .input-group-btn.btn-primary.submit {
+    margin-top: 30px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-size: 24px
+
+}
+#mb-formbuilder-container .fbTheme .btn.btn-primary.submit:active, #mb-formbuilder-container .fbTheme .btn.btn-primary.submit:active:focus, #mb-formbuilder-container .fbTheme .btn.btn-primary.submit:active:hover, #mb-formbuilder-container .fbTheme .btn.btn-primary.submit:focus, #mb-formbuilder-container .fbTheme .btn.btn-primary.submit:hover, #mb-formbuilder-container .fbTheme .input-group-btn.btn-primary.submit:active, #mb-formbuilder-container .fbTheme .input-group-btn.btn-primary.submit:active:focus, #mb-formbuilder-container .fbTheme .input-group-btn.btn-primary.submit:active:hover, #mb-formbuilder-container .fbTheme .input-group-btn.btn-primary.submit:focus, #mb-formbuilder-container .fbTheme .input-group-btn.btn-primary.submit:hover, #mb-formbuilder-container .formView .btn.btn-primary.submit:active, #mb-formbuilder-container .formView .btn.btn-primary.submit:active:focus, #mb-formbuilder-container .formView .btn.btn-primary.submit:active:hover, #mb-formbuilder-container .formView .btn.btn-primary.submit:focus, #mb-formbuilder-container .formView .btn.btn-primary.submit:hover, #mb-formbuilder-container .formView .input-group-btn.btn-primary.submit:active, #mb-formbuilder-container .formView .input-group-btn.btn-primary.submit:active:focus, #mb-formbuilder-container .formView .input-group-btn.btn-primary.submit:active:hover, #mb-formbuilder-container .formView .input-group-btn.btn-primary.submit:focus, #mb-formbuilder-container .formView .input-group-btn.btn-primary.submit:hover {
+    color: #fff;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+#mb-formbuilder-container .fbTheme .btn-action.btn-add .btn span, #mb-formbuilder-container .formView .btn-action.btn-add .btn span {
+    color: white;
+}
+
+#mb-formbuilder-container .fieldset+.btn-action.btn-add .btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color)!important;
+}
