@@ -256,7 +256,7 @@ function ip(num) {
 
 
     // Attach functions to global scope
-    global.fetchIP = fetchIP;
+    global.ip = ip;
     global.radioVar = radioVar;
     global.waitForElement = waitForElement;
     global.hideElement = hideElement;
