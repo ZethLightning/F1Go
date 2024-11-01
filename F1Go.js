@@ -214,12 +214,49 @@ function radioVar(radioNum, radioArray, textNum, textArray) {
 }
 
 
+async function fetchIP() {
+    try {
+        let response = await fetch('https://api.ipify.org?format=json');
+        let data = await response.json();
+        return data.ip; // Return the fetched IP
+    } catch (error) {
+        console.error('Error fetching IP:', error);
+        return null; // Return null if there's an error
+    }
+}
+
+function ip(num) {
+    const textBox = document.querySelector(`input[name="${num}"]`);
+    if (textBox) {
+        textBox.style.display = "none"; // Hide the input field
+
+        // Find and hide the closest label to the text input
+        const label1 = textBox.closest('.form-group').querySelector('label');
+        if (label1) {
+            label1.style.display = "none"; // Hide the label
+        }
+
+        // Set up the button click listener
+        document.querySelector('button[data-qa="fb-client-button-submit"]').addEventListener('click', async function () {
+            const IP = await fetchIP(); // Wait for the IP to be fetched
+
+            if (textBox && IP) {
+                textBox.value = IP; // Set the input value to the fetched IP
+            } else {
+                console.error('Text box not found or IP not fetched');
+            }
+        });
+    } else {
+        console.error('Text box not found for the given name:', num);
+    }
+}
 
 
 
 
 
     // Attach functions to global scope
+    global.fetchIP = fetchIP;
     global.radioVar = radioVar;
     global.waitForElement = waitForElement;
     global.hideElement = hideElement;
