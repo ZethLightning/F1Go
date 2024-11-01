@@ -223,8 +223,8 @@ function radioVar(radioNum, radioArray, textNum, textArray) {
     global.radioVar = radioVar;
     global.waitForElement = waitForElement;
     global.hideElement = hideElement;
-    global.RadioButtonCaps = radioButtonCaps;
-    global.DropDownCaps = dropDownCaps;
+    global.radioButtonCaps = radioButtonCaps;
+    global.dropDownCaps = dropDownCaps;
     global.hideHeader = hideHeader;
 
 })(this); // 'this' refers to the global object, which is 'window' in browsers
