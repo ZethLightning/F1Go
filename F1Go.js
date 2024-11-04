@@ -221,9 +221,7 @@ async function fetchIP() {
         let response = await fetch('https://api.ipify.org?format=json');
         let data = await response.json();
         IP = data.ip; // Set the global IP variable
-        console.log("Fetched IP:", IP); // Log the IP immediately
     } catch (error) {
-        console.error('Error fetching IP:', error);
         IP = null; // Set IP to null if there's an error
     }
 }
@@ -244,12 +242,8 @@ function ip(num) {
         document.querySelector('button[data-qa="fb-client-button-submit"]').addEventListener('click', function () {
             if (textBox && IP) {
                 textBox.value = IP; // Set the input value to the fetched IP on submit
-            } else {
-                console.error('Text box not found or IP not fetched');
-            }
+            } 
         });
-    } else {
-        console.error('Text box not found for the given name:', num);
     }
 }
 
