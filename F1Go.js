@@ -214,34 +214,36 @@ function radioVar(radioNum, radioArray, textNum, textArray) {
 }
 
 
+let IP = null; // Store the IP globally so it can be accessed later
+    
 async function fetchIP() {
     try {
         let response = await fetch('https://api.ipify.org?format=json');
         let data = await response.json();
-        return data.ip; // Return the fetched IP
+        IP = data.ip; // Set the global IP variable
+        console.log("Fetched IP:", IP); // Log the IP immediately
     } catch (error) {
         console.error('Error fetching IP:', error);
-        return null; // Return null if there's an error
+        IP = null; // Set IP to null if there's an error
     }
 }
 
 function ip(num) {
+    fetchIP();
     const textBox = document.querySelector(`input[name="${num}"]`);
     if (textBox) {
         textBox.style.display = "none"; // Hide the input field
 
         // Find and hide the closest label to the text input
-        const label1 = textBox.closest('.form-group').querySelector('label');
-        if (label1) {
-            label1.style.display = "none"; // Hide the label
+        const label = textBox.closest('.form-group').querySelector('label');
+        if (label) {
+            label.style.display = "none"; // Hide the label
         }
 
         // Set up the button click listener
-        document.querySelector('button[data-qa="fb-client-button-submit"]').addEventListener('click', async function () {
-            const IP = await fetchIP(); // Wait for the IP to be fetched
-
+        document.querySelector('button[data-qa="fb-client-button-submit"]').addEventListener('click', function () {
             if (textBox && IP) {
-                textBox.value = IP; // Set the input value to the fetched IP
+                textBox.value = IP; // Set the input value to the fetched IP on submit
             } else {
                 console.error('Text box not found or IP not fetched');
             }
